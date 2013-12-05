@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>04C42B3B-CBE1-475D-93CF-5A24542E30DF</string>
+	<key>IDESourceControlProjectName</key>
+	<string>BeaconFinder</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>0E9C173C-4425-4F78-A43A-5B1105D64A55</key>
+		<string>ssh://github.com/shanear/beacon_finder.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>BeaconFinder.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>0E9C173C-4425-4F78-A43A-5B1105D64A55</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/shanear/beacon_finder.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>0E9C173C-4425-4F78-A43A-5B1105D64A55</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>0E9C173C-4425-4F78-A43A-5B1105D64A55</string>
+			<key>IDESourceControlWCCName</key>
+			<string>BeaconFinder</string>
+		</dict>
+	</array>
+</dict>
+</plist>

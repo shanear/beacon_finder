@@ -19,6 +19,12 @@
 		CC0804D5184FDF2200A0308E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC0804BD184FDF2200A0308E /* UIKit.framework */; };
 		CC0804DD184FDF2200A0308E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CC0804DB184FDF2200A0308E /* InfoPlist.strings */; };
 		CC0804DF184FDF2200A0308E /* BeaconFinderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0804DE184FDF2200A0308E /* BeaconFinderTests.m */; };
+		CC0804E9184FE22900A0308E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC0804E8184FE22900A0308E /* Main.storyboard */; };
+		CC0804EC184FE74500A0308E /* ClueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0804EB184FE74500A0308E /* ClueViewController.m */; };
+		CC0804EE184FEB1700A0308E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC0804ED184FEB1700A0308E /* CoreLocation.framework */; };
+		CC0804F0184FEB1D00A0308E /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC0804EF184FEB1D00A0308E /* CoreBluetooth.framework */; };
+		CC0804F2184FEB2800A0308E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC0804F1184FEB2800A0308E /* SystemConfiguration.framework */; };
+		CC0804FD184FEFB600A0308E /* libEstimoteSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC0804FA184FEB4800A0308E /* libEstimoteSDK.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +54,18 @@
 		CC0804DA184FDF2200A0308E /* BeaconFinderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BeaconFinderTests-Info.plist"; sourceTree = "<group>"; };
 		CC0804DC184FDF2200A0308E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CC0804DE184FDF2200A0308E /* BeaconFinderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeaconFinderTests.m; sourceTree = "<group>"; };
+		CC0804E8184FE22900A0308E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		CC0804EA184FE74500A0308E /* ClueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClueViewController.h; sourceTree = "<group>"; };
+		CC0804EB184FE74500A0308E /* ClueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClueViewController.m; sourceTree = "<group>"; };
+		CC0804ED184FEB1700A0308E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		CC0804EF184FEB1D00A0308E /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		CC0804F1184FEB2800A0308E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CC0804F5184FEB4800A0308E /* ESTBeacon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESTBeacon.h; sourceTree = "<group>"; };
+		CC0804F6184FEB4800A0308E /* ESTBeaconDefinitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESTBeaconDefinitions.h; sourceTree = "<group>"; };
+		CC0804F7184FEB4800A0308E /* ESTBeaconManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESTBeaconManager.h; sourceTree = "<group>"; };
+		CC0804F8184FEB4800A0308E /* ESTBeaconRegion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESTBeaconRegion.h; sourceTree = "<group>"; };
+		CC0804F9184FEB4800A0308E /* ESTBeaconUpdateInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESTBeaconUpdateInfo.h; sourceTree = "<group>"; };
+		CC0804FA184FEB4800A0308E /* libEstimoteSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEstimoteSDK.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +73,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC0804FD184FEFB600A0308E /* libEstimoteSDK.a in Frameworks */,
+				CC0804F2184FEB2800A0308E /* SystemConfiguration.framework in Frameworks */,
+				CC0804F0184FEB1D00A0308E /* CoreBluetooth.framework in Frameworks */,
+				CC0804EE184FEB1700A0308E /* CoreLocation.framework in Frameworks */,
 				CC0804BC184FDF2200A0308E /* CoreGraphics.framework in Frameworks */,
 				CC0804BE184FDF2200A0308E /* UIKit.framework in Frameworks */,
 				CC0804BA184FDF2200A0308E /* Foundation.framework in Frameworks */,
@@ -96,6 +118,10 @@
 		CC0804B8184FDF2200A0308E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CC0804F3184FEB4800A0308E /* EstimoteSDK */,
+				CC0804F1184FEB2800A0308E /* SystemConfiguration.framework */,
+				CC0804EF184FEB1D00A0308E /* CoreBluetooth.framework */,
+				CC0804ED184FEB1700A0308E /* CoreLocation.framework */,
 				CC0804B9184FDF2200A0308E /* Foundation.framework */,
 				CC0804BB184FDF2200A0308E /* CoreGraphics.framework */,
 				CC0804BD184FDF2200A0308E /* UIKit.framework */,
@@ -107,8 +133,9 @@
 		CC0804BF184FDF2200A0308E /* BeaconFinder */ = {
 			isa = PBXGroup;
 			children = (
-				CC0804C8184FDF2200A0308E /* BeaconFinderAppDelegate.h */,
-				CC0804C9184FDF2200A0308E /* BeaconFinderAppDelegate.m */,
+				CC0804E8184FE22900A0308E /* Main.storyboard */,
+				CC0804EA184FE74500A0308E /* ClueViewController.h */,
+				CC0804EB184FE74500A0308E /* ClueViewController.m */,
 				CC0804CB184FDF2200A0308E /* Images.xcassets */,
 				CC0804C0184FDF2200A0308E /* Supporting Files */,
 			);
@@ -118,6 +145,8 @@
 		CC0804C0184FDF2200A0308E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CC0804C8184FDF2200A0308E /* BeaconFinderAppDelegate.h */,
+				CC0804C9184FDF2200A0308E /* BeaconFinderAppDelegate.m */,
 				CC0804C1184FDF2200A0308E /* BeaconFinder-Info.plist */,
 				CC0804C2184FDF2200A0308E /* InfoPlist.strings */,
 				CC0804C5184FDF2200A0308E /* main.m */,
@@ -142,6 +171,27 @@
 				CC0804DB184FDF2200A0308E /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CC0804F3184FEB4800A0308E /* EstimoteSDK */ = {
+			isa = PBXGroup;
+			children = (
+				CC0804F4184FEB4800A0308E /* Headers */,
+				CC0804FA184FEB4800A0308E /* libEstimoteSDK.a */,
+			);
+			path = EstimoteSDK;
+			sourceTree = "<group>";
+		};
+		CC0804F4184FEB4800A0308E /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				CC0804F5184FEB4800A0308E /* ESTBeacon.h */,
+				CC0804F6184FEB4800A0308E /* ESTBeaconDefinitions.h */,
+				CC0804F7184FEB4800A0308E /* ESTBeaconManager.h */,
+				CC0804F8184FEB4800A0308E /* ESTBeaconRegion.h */,
+				CC0804F9184FEB4800A0308E /* ESTBeaconUpdateInfo.h */,
+			);
+			path = Headers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +272,7 @@
 			files = (
 				CC0804C4184FDF2200A0308E /* InfoPlist.strings in Resources */,
 				CC0804CC184FDF2200A0308E /* Images.xcassets in Resources */,
+				CC0804E9184FE22900A0308E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC0804EC184FE74500A0308E /* ClueViewController.m in Sources */,
 				CC0804CA184FDF2200A0308E /* BeaconFinderAppDelegate.m in Sources */,
 				CC0804C6184FDF2200A0308E /* main.m in Sources */,
 			);
@@ -362,7 +414,17 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BeaconFinder/BeaconFinder-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/EstimoteSDK/Headers",
+				);
 				INFOPLIST_FILE = "BeaconFinder/BeaconFinder-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/thoughtworker/Dropbox/Projects/ios/BeaconFinder/EstimoteSDK,
+					"$(SRCROOT)/EstimoteSDK",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -375,7 +437,17 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BeaconFinder/BeaconFinder-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/EstimoteSDK/Headers",
+				);
 				INFOPLIST_FILE = "BeaconFinder/BeaconFinder-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/thoughtworker/Dropbox/Projects/ios/BeaconFinder/EstimoteSDK,
+					"$(SRCROOT)/EstimoteSDK",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
