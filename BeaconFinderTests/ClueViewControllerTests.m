@@ -7,16 +7,19 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "ClueViewController.h"
 
 @interface ClueViewControllerTests : XCTestCase
 
 @end
 
 @implementation ClueViewControllerTests
+ClueViewController * clueViewController;
 
 - (void)setUp
 {
     [super setUp];
+    clueViewController = [[ClueViewController alloc] init];
     // Put setup code here; it will be run once, before the first test case.
 }
 
@@ -26,9 +29,10 @@
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testChangeStatusShouldChangeCurrentStatus
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    int result = [clueViewController changeStatus];
+    XCTAssertEqual(1, result, @"test test");
 }
 
 @end

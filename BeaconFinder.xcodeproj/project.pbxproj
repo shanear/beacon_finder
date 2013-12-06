@@ -25,6 +25,7 @@
 		CC0804F0184FEB1D00A0308E /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC0804EF184FEB1D00A0308E /* CoreBluetooth.framework */; };
 		CC0804F2184FEB2800A0308E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC0804F1184FEB2800A0308E /* SystemConfiguration.framework */; };
 		CC0804FD184FEFB600A0308E /* libEstimoteSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC0804FA184FEB4800A0308E /* libEstimoteSDK.a */; };
+		CCEFB52E1851507B0057C9C7 /* ClueViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEFB52D1851507B0057C9C7 /* ClueViewControllerTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		CC0804F8184FEB4800A0308E /* ESTBeaconRegion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESTBeaconRegion.h; sourceTree = "<group>"; };
 		CC0804F9184FEB4800A0308E /* ESTBeaconUpdateInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESTBeaconUpdateInfo.h; sourceTree = "<group>"; };
 		CC0804FA184FEB4800A0308E /* libEstimoteSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEstimoteSDK.a; sourceTree = "<group>"; };
+		CCEFB52D1851507B0057C9C7 /* ClueViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClueViewControllerTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 			children = (
 				CC0804DE184FDF2200A0308E /* BeaconFinderTests.m */,
 				CC0804D9184FDF2200A0308E /* Supporting Files */,
+				CCEFB52D1851507B0057C9C7 /* ClueViewControllerTests.m */,
 			);
 			path = BeaconFinderTests;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC0804DF184FDF2200A0308E /* BeaconFinderTests.m in Sources */,
+				CCEFB52E1851507B0057C9C7 /* ClueViewControllerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,6 +518,7 @@
 				CC0804E4184FDF2200A0308E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CC0804E5184FDF2200A0308E /* Build configuration list for PBXNativeTarget "BeaconFinderTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +527,7 @@
 				CC0804E7184FDF2200A0308E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

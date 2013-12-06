@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ClueViewController : UIViewController
-
+- (int)changeStatus;
 @end

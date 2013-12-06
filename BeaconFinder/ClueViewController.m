@@ -15,7 +15,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *clueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *beaconsLabel;
 @property int clueNumber;
-
+@property (weak, nonatomic) IBOutlet UINavigationBar *clueStatus;
+@property NSArray *statusMessages;
+@property int currentStatus;
 @property (nonatomic, strong) ESTBeaconManager* beaconManager;
 @property (nonatomic, strong) ESTBeacon* selectedBeacon;
 @end
@@ -28,9 +30,6 @@
     if (self) {
         // Custom initialization
     }
-    
-    self.clueNumber = 1;
-    
     return self;
 }
 
@@ -52,6 +51,14 @@
     [self.beaconManager startRangingBeaconsInRegion:region];
     
     [self.view bringSubviewToFront: self.clueLabel];
+    
+    self.statusMessages = @[
+                            @"You're not close.",
+                            @"You're getting warmer...",
+                            @"You've found it!"
+                            ];
+    self.currentStatus = 0;
+    self.clueNumber = 1;
 }
 
 - (void)didReceiveMemoryWarning
@@ -75,7 +82,23 @@
 
 - (IBAction)onSkip:(id)sender {
     self.clueNumber += 1;
+    [self.clueLabel setText: [NSString stringWithFormat:@"Clue %d", self.clueNumber]];
+    [self changeStatus];
+}
 
-    [self.clueLabel setText: [NSString stringWithFormat:@"Clue #%d", self.clueNumber]];
+
+- (int)changeStatus {
+    self.currentStatus += 1;
+    self.currentStatus = self.currentStatus % 3;
+    self.clueStatus.topItem.title = self.statusMessages[self.currentStatus];
+    return self.currentStatus;
 }
 @end
+
+
+
+
+
+
+
+
