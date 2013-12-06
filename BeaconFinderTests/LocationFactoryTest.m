@@ -33,7 +33,7 @@
     LocationFactory *repository = [[LocationFactory alloc] init];
     Location *location = [repository getFirst];
     
-    XCTAssertEqualObjects(location.beaconId , @"B9407F30-F5F8-466E-AFF9-25556B57FE6D");
+    XCTAssertEqualObjects(location.beaconName , @"LilTurts");
 }
 
 

@@ -12,14 +12,20 @@
 
 
 @property NSString *name;
-@property NSString *beaconId;
+@property NSString *beaconName;
+@property int major;
+@property int minor;
 @property NSArray *clues;
 @property Location *next;
 
 - (id) initWithName: (NSString *) name
-           beaconId: (NSString *) beaconId
+         beaconName: (NSString *) beaconName
+              major: (int) major
+              minor: (int) minor
               clues: (NSArray *) clues
                next: (Location *) next;
 
+- (BOOL) hasMajor: (int) major
+            minor: (int) minor;
 
 @end

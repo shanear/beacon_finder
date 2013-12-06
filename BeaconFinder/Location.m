@@ -11,7 +11,9 @@
 @implementation Location
 
 - (id) initWithName: (NSString *) name
-           beaconId: (NSString *) beaconId
+         beaconName:(NSString *)beaconName
+              major: (int) major
+              minor: (int) minor
               clues: (NSArray *) clues
                next: (Location *) next
 {
@@ -19,11 +21,18 @@
     self = [super init];
     if (self) {
         _name = [name copy];
-        _beaconId = [beaconId copy];
+        _beaconName = [beaconName copy];
+        _major = major;
+        _minor = minor;
         _clues = [clues copy];
         _next = next;
     }
     return self;
+}
+
+- (BOOL) hasMajor:(int)major minor:(int)minor
+{
+    return (major == _major && minor == _minor);
 }
 
 @end

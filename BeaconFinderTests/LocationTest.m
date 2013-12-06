@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "Location.h"
+#import "ESTBeacon.h"
 
 @interface LocationTest : XCTestCase
 
@@ -29,15 +30,23 @@
 
 - (void)testInitSetsValues
 {
-    Location *location = [[Location alloc] initWithName:@"Test" beaconId:@"AnotherTest" clues: @[@"Clue 1"] next: Nil];
+    Location *location = [[Location alloc] initWithName:@"Test"
+                                             beaconName: @"Gilbert"
+                                                  major: 3
+                                                  minor: 1
+                                                  clues: @[@"Clue 1"]
+                                                   next: Nil];
     XCTAssertEqualObjects(location.name, @"Test");
-    XCTAssertEqualObjects(location.beaconId, @"AnotherTest");
+    XCTAssertEqual(location.major, 3);
+    XCTAssertEqual(location.minor, 1);
 }
 
 -(void)testInitSetClues
 {
     Location *location = [[Location alloc] initWithName: @"TW office"
-                                               beaconId: @"AB123"
+                                                                       beaconName: @"Gilbert"
+                                                  major: 2
+                                                  minor: 1
                                                   clues: @[@"Where studios is", @"SF beach"]
                                                    next: Nil];
     
@@ -50,14 +59,29 @@
 -(void)testLocationShouldKnowAboutNext
 {
     Location *nextLocation = [[Location alloc] initWithName: @"loc 2"
-                                                   beaconId: @"124"
+                                                                           beaconName: @"Gilbert"
+                                                      major: 2
+                                                      minor: 1
                                                       clues: @[@"clue 2"]
-                                                       next: Nil];
-    Location *currentLocation = [[Location alloc] initWithName: @"loc 1"
-                                                      beaconId: @"123"
+                                                       next: Nil];\
+    Location *currentLocation = [[Location alloc] initWithName: @"loc 1"                                                                                                     beaconName: @"Rudolph"
+                                                         major: 3
+                                                         minor: 1
                                                          clues: @[@"clue 1"]
                                                           next: nextLocation];
     XCTAssertEqualObjects(currentLocation.next, nextLocation);
+}
+
+-(void)testLocationSameAsBeacon
+{
+    Location *currentLocation = [[Location alloc] initWithName: @"loc 1"
+                                                    beaconName: @"Bacon"
+                                                         major: 321
+                                                         minor: 123
+                                                         clues: @[@"clue 1"]
+                                                          next: Nil];
+    XCTAssertTrue([currentLocation hasMajor:321 minor: 123]);
+    XCTAssertFalse([currentLocation hasMajor:123 minor: 456]);
 }
 
 @end
