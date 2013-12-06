@@ -83,10 +83,17 @@ float COLD_BLUE = 0.79;
 {
     if([beacons count] > 0)
     {
-        [self.beaconsLabel setText: [NSString stringWithFormat:@"We got beacons: #%d", [beacons count]]];
+        ESTBeacon* beacon = [beacons firstObject];
+        
+        
+        [self backgroundGradientforHotness: 100 - (-(beacon.ibeacon.rssi + 75) * 4)];
+        
+        NSString* text = [NSString stringWithFormat:
+                          @"Here is our beaconius. (major: %d, minor: %d)", [beacon.major intValue], [beacon.minor intValue]];
+        [self.cluesText setText: text];
     }
     else {
-        [self.beaconsLabel setText: @"We have no beacons..."];
+        [self.cluesText setText: @"We have no beacons..."];
     }
 }
 
