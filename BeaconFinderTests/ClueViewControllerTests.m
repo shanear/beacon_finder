@@ -35,4 +35,15 @@ ClueViewController * clueViewController;
     XCTAssertEqual(1, result, @"test test");
 }
 
+- (void) testMergeColors {
+    float result = [clueViewController mergeColorValue: 0.0
+                                      withNewColor: 1.0
+                                      byPercentage: 100
+                    ];
+    XCTAssertEqualWithAccuracy(1.0, result, 0.0001,@"color was WRONG!");
+}
+
+
+
+
 @end

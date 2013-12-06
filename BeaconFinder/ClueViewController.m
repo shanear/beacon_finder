@@ -13,6 +13,7 @@
 - (IBAction)onSkip:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UILabel *clueLabel;
+@property (weak, nonatomic) IBOutlet UITextView *cluesText;
 @property (weak, nonatomic) IBOutlet UILabel *beaconsLabel;
 @property int clueNumber;
 @property (weak, nonatomic) IBOutlet UINavigationBar *clueStatus;
@@ -23,6 +24,15 @@
 @end
 
 @implementation ClueViewController
+
+int _hotness = 0;
+
+float HOT_RED = 0.9;
+float HOT_GREEN = 0.32;
+float HOT_BLUE = 0.32;
+float COLD_RED = 1.0;
+float COLD_GREEN = 0.97;
+float COLD_BLUE = 0.79;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -91,8 +101,34 @@
     self.currentStatus += 1;
     self.currentStatus = self.currentStatus % 3;
     self.clueStatus.topItem.title = self.statusMessages[self.currentStatus];
+    
+    [self.cluesText setText: self.view.backgroundColor.description];
+    [self backgroundGradientforHotness: _hotness];
+    _hotness += 5;
+    
     return self.currentStatus;
 }
+
+- (void)backgroundGradientforHotness:(int)hotness {
+    self.view.backgroundColor = [UIColor colorWithRed: [self mergeColorValue: COLD_RED
+                                    withNewColor: HOT_RED
+                                    byPercentage: hotness]
+                    green: [self mergeColorValue: COLD_GREEN
+                                    withNewColor: HOT_GREEN
+                                    byPercentage: hotness]
+                     blue:[self mergeColorValue: COLD_BLUE
+                                   withNewColor: HOT_BLUE
+                                   byPercentage: hotness]
+                    alpha:1];
+}
+
+- (float)mergeColorValue:(float) oldColor
+            withNewColor: (float) newColor
+            byPercentage: (int) percentage {
+    float stepAmount = (newColor - oldColor) / 100.0;
+    return oldColor + (stepAmount * percentage);
+}
+
 @end
 
 

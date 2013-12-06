@@ -10,4 +10,7 @@
 
 @interface ClueViewController : UIViewController
 - (int)changeStatus;
+- (float)mergeColorValue:(float) oldColor
+            withNewColor: (float) newColor
+            byPercentage: (int) percentage;
 @end
