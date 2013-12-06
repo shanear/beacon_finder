@@ -25,6 +25,10 @@
 		CC0804F0184FEB1D00A0308E /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC0804EF184FEB1D00A0308E /* CoreBluetooth.framework */; };
 		CC0804F2184FEB2800A0308E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC0804F1184FEB2800A0308E /* SystemConfiguration.framework */; };
 		CC0804FD184FEFB600A0308E /* libEstimoteSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC0804FA184FEB4800A0308E /* libEstimoteSDK.a */; };
+		CC94D66A1852474D00F057ED /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = CC94D6671852474D00F057ED /* Location.m */; };
+		CC94D66B1852474D00F057ED /* LocationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = CC94D6691852474D00F057ED /* LocationFactory.m */; };
+		CC94D66E1852475800F057ED /* LocationFactoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CC94D66C1852475800F057ED /* LocationFactoryTest.m */; };
+		CC94D66F1852475800F057ED /* LocationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CC94D66D1852475800F057ED /* LocationTest.m */; };
 		CCEFB52E1851507B0057C9C7 /* ClueViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEFB52D1851507B0057C9C7 /* ClueViewControllerTests.m */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +71,12 @@
 		CC0804F8184FEB4800A0308E /* ESTBeaconRegion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESTBeaconRegion.h; sourceTree = "<group>"; };
 		CC0804F9184FEB4800A0308E /* ESTBeaconUpdateInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESTBeaconUpdateInfo.h; sourceTree = "<group>"; };
 		CC0804FA184FEB4800A0308E /* libEstimoteSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEstimoteSDK.a; sourceTree = "<group>"; };
+		CC94D6661852474D00F057ED /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
+		CC94D6671852474D00F057ED /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
+		CC94D6681852474D00F057ED /* LocationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationFactory.h; sourceTree = "<group>"; };
+		CC94D6691852474D00F057ED /* LocationFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationFactory.m; sourceTree = "<group>"; };
+		CC94D66C1852475800F057ED /* LocationFactoryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationFactoryTest.m; sourceTree = "<group>"; };
+		CC94D66D1852475800F057ED /* LocationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationTest.m; sourceTree = "<group>"; };
 		CCEFB52D1851507B0057C9C7 /* ClueViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClueViewControllerTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -135,6 +145,10 @@
 		CC0804BF184FDF2200A0308E /* BeaconFinder */ = {
 			isa = PBXGroup;
 			children = (
+				CC94D6661852474D00F057ED /* Location.h */,
+				CC94D6671852474D00F057ED /* Location.m */,
+				CC94D6681852474D00F057ED /* LocationFactory.h */,
+				CC94D6691852474D00F057ED /* LocationFactory.m */,
 				CC0804E8184FE22900A0308E /* Main.storyboard */,
 				CC0804EA184FE74500A0308E /* ClueViewController.h */,
 				CC0804EB184FE74500A0308E /* ClueViewController.m */,
@@ -160,6 +174,8 @@
 		CC0804D8184FDF2200A0308E /* BeaconFinderTests */ = {
 			isa = PBXGroup;
 			children = (
+				CC94D66C1852475800F057ED /* LocationFactoryTest.m */,
+				CC94D66D1852475800F057ED /* LocationTest.m */,
 				CC0804DE184FDF2200A0308E /* BeaconFinderTests.m */,
 				CC0804D9184FDF2200A0308E /* Supporting Files */,
 				CCEFB52D1851507B0057C9C7 /* ClueViewControllerTests.m */,
@@ -296,6 +312,8 @@
 			files = (
 				CC0804EC184FE74500A0308E /* ClueViewController.m in Sources */,
 				CC0804CA184FDF2200A0308E /* BeaconFinderAppDelegate.m in Sources */,
+				CC94D66A1852474D00F057ED /* Location.m in Sources */,
+				CC94D66B1852474D00F057ED /* LocationFactory.m in Sources */,
 				CC0804C6184FDF2200A0308E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -305,6 +323,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC0804DF184FDF2200A0308E /* BeaconFinderTests.m in Sources */,
+				CC94D66E1852475800F057ED /* LocationFactoryTest.m in Sources */,
+				CC94D66F1852475800F057ED /* LocationTest.m in Sources */,
 				CCEFB52E1851507B0057C9C7 /* ClueViewControllerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
