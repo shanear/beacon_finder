@@ -21,13 +21,11 @@ Game *game;
 {
     [self buildGame];
     [super setUp];
-    NSLog(@"Setting Up woo!!!!!!!!!!!!!!!!!!!!!!!");
     
 }
 
 - (void)tearDown
 {
-    NSLog(@"Tearning down boo......................");
    [super tearDown];
 }
 
@@ -35,12 +33,11 @@ Game *game;
 {
     LocationFactory* locationFactory = [[LocationFactory alloc] init];
     game = [[Game alloc] initWithLocationFactory:locationFactory];
+    [game start];
 }
 
 - (void) testStart
 {
-    XCTAssertNil(game.currentLocation);
-    [game start];
     XCTAssertNotNil(game.currentLocation);
 }
 
@@ -53,8 +50,6 @@ Game *game;
 
 - (void)testRegisterBeaconFindABeacon
 {
-    [game start];
-    
     int oldHotness = game.hotness;
     [game registerBeaconWithMajor: game.currentLocation.major
                             Minor: game.currentLocation.minor
@@ -66,8 +61,6 @@ Game *game;
 
 - (void)testRegisterNonCurrentBeacon
 {
-    [game start];
-
     int fakeMajorId = 7777;
     int oldHotness = game.hotness;
     [game registerBeaconWithMajor: fakeMajorId
@@ -80,7 +73,6 @@ Game *game;
 
 - (void)testRegisterNoBeacons
 {
-    [game start];
     [game registerBeaconWithMajor: game.currentLocation.major
                             Minor: game.currentLocation.minor
                       withReading: -85];
@@ -91,7 +83,6 @@ Game *game;
 
 - (void)testIsLocationFoundNo
 {
-    [game start];
     [game registerBeaconWithMajor: game.currentLocation.major
                             Minor: game.currentLocation.minor
                       withReading: LOCATION_RSSI_THRESHOLD - 1];
@@ -101,7 +92,6 @@ Game *game;
 
 - (void)testRegisterBeaconFindsLocation
 {
-    [game start];
     [game registerBeaconWithMajor: game.currentLocation.major
                             Minor: game.currentLocation.minor
                       withReading: LOCATION_RSSI_THRESHOLD];
@@ -110,7 +100,6 @@ Game *game;
 
 - (void)testRegisterBeaconFindingLocationSetsHotnessToZero
 {
-    [game start];
     [game registerBeaconWithMajor: game.currentLocation.major
                             Minor: game.currentLocation.minor
                       withReading: LOCATION_RSSI_THRESHOLD];
@@ -119,7 +108,6 @@ Game *game;
 
 - (void)testAdvanceLocation
 {
-    [game start];
     Location * currentLocation = [game currentLocation];
     [game advanceLocation];
     XCTAssertEqual(currentLocation.next, [game currentLocation]);
@@ -127,7 +115,6 @@ Game *game;
 
 - (void)testAdvanceLocationSetsLocationNotFound
 {
-    [game start];
     [game registerBeaconWithMajor: game.currentLocation.major
                             Minor: game.currentLocation.minor
                       withReading: LOCATION_RSSI_THRESHOLD];
@@ -137,8 +124,6 @@ Game *game;
 
 - (void)testAdvanceLocationCompletesGameAfterLastLocation
 {
-    [game start];
-    
     while([game currentLocation].next != NULL)
     {
         [game advanceLocation];
