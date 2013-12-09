@@ -7,25 +7,28 @@
 //
 
 #import "ClueViewController.h"
+#import "Game.h"
 #import <ESTBeaconManager.h>
 
 @interface ClueViewController () <ESTBeaconManagerDelegate>
 - (IBAction)onSkip:(id)sender;
+- (IBAction)onNextClue:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UILabel *clueLabel;
+@property (weak, nonatomic) IBOutlet UIButton *statusButton;
 @property (weak, nonatomic) IBOutlet UITextView *cluesText;
 @property (weak, nonatomic) IBOutlet UILabel *beaconsLabel;
 @property int clueNumber;
-@property (weak, nonatomic) IBOutlet UINavigationBar *clueStatus;
 @property NSArray *statusMessages;
-@property int currentStatus;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *skipButton;
 @property (nonatomic, strong) ESTBeaconManager* beaconManager;
 @property (nonatomic, strong) ESTBeacon* selectedBeacon;
 @end
 
 @implementation ClueViewController
 
-int _hotness = 0;
+Game *_game;
+LocationFactory *_locationFactory;
 
 float HOT_RED = 0.9;
 float HOT_GREEN = 0.32;
@@ -60,14 +63,12 @@ float COLD_BLUE = 0.79;
     // when beacon ranged beaconManager:didRangeBeacons:inRegion: invoked
     [self.beaconManager startRangingBeaconsInRegion:region];
     
-    [self.view bringSubviewToFront: self.clueLabel];
+    _locationFactory = [[LocationFactory alloc] init];
+    _game = [[Game alloc] initWithLocationFactory:_locationFactory];
+    [_game start];
     
-    self.statusMessages = @[
-                            @"You're not close.",
-                            @"You're getting warmer...",
-                            @"You've found it!"
-                            ];
-    self.currentStatus = 0;
+    [self.statusButton setEnabled:NO];
+
     self.clueNumber = 1;
 }
 
@@ -81,15 +82,42 @@ float COLD_BLUE = 0.79;
      didRangeBeacons:(NSArray *)beacons
             inRegion:(ESTBeaconRegion *)region
 {
+    if (![_game isLocationFound])
+    {
+        [self registerBeacons: beacons];
+        [self testOutputForBeacons: beacons];
+        
+        if([_game isLocationFound])
+        {
+            [self changeClueToFunFact];
+        }
+        
+        [self updateStatusMessage];
+    }
+    
+    [self updateBackgroundColor];
+}
+
+-(void)registerBeacons: (NSArray *) beacons
+{
+    for(ESTBeacon* beacon in beacons)
+    {
+        [_game registerBeaconWithMajor: [beacon.ibeacon.major intValue]
+                                 Minor: [beacon.ibeacon.minor intValue]
+                           withReading: beacon.ibeacon.rssi];
+    }
+
+}
+
+
+
+-(void)testOutputForBeacons: (NSArray *) beacons {
     if([beacons count] > 0)
     {
         ESTBeacon* beacon = [beacons firstObject];
         
-        
-        [self backgroundGradientforHotness: 100 - (-(beacon.ibeacon.rssi + 75) * 4)];
-        
         NSString* text = [NSString stringWithFormat:
-                          @"Here is our beaconius. (major: %d, minor: %d)", [beacon.major intValue], [beacon.minor intValue]];
+                          @"Here is our beaconius. (major: %d, minor: %d, rssi %d) hotness: %d", [beacon.ibeacon.major intValue], [beacon.ibeacon.minor intValue], beacon.ibeacon.rssi, _game.hotness];
         [self.cluesText setText: text];
     }
     else {
@@ -97,23 +125,56 @@ float COLD_BLUE = 0.79;
     }
 }
 
-- (IBAction)onSkip:(id)sender {
-    self.clueNumber += 1;
-    [self.clueLabel setText: [NSString stringWithFormat:@"Clue %d", self.clueNumber]];
-    [self changeStatus];
+-(void)beaconManager:(ESTBeaconManager *)manager
+       didExitRegion:(ESTBeaconRegion *)region {
+    [_game registerNoBeacons];
+
+    [self updateStatusMessage];
+    [self updateBackgroundColor];
 }
 
+- (IBAction)onSkip:(id)sender {
+    [_game advanceLocation];
+    [self updateLocationUI];
+}
 
-- (int)changeStatus {
-    self.currentStatus += 1;
-    self.currentStatus = self.currentStatus % 3;
-    self.clueStatus.topItem.title = self.statusMessages[self.currentStatus];
-    
-    [self.cluesText setText: self.view.backgroundColor.description];
-    [self backgroundGradientforHotness: _hotness];
-    _hotness += 5;
-    
-    return self.currentStatus;
+- (IBAction)onNextClue:(id)sender {
+    [_game advanceLocation];
+    [self updateLocationUI];
+}
+
+- (void)updateLocationUI {
+    self.clueNumber += 1;
+    [self.clueLabel setText: [NSString stringWithFormat:@"Clue %d", self.clueNumber]];
+    [self.statusButton setEnabled:NO];
+    [self updateStatusMessage];
+    [self.skipButton setEnabled:YES];
+}
+
+-(void)changeClueToFunFact {
+    [self.clueLabel setText:@"Nice job!"];
+    [self.statusButton setEnabled:YES];
+    [self.skipButton setEnabled:NO];
+}
+
+- (NSString *)statusMessage {
+    if(_game.hotness > 75) {
+        return @"You're burning up!";
+    }
+    else if(_game.hotness > 0) {
+        return @"You're getting warmer...";
+    }
+    else {
+        return @"You're not close.";
+    }
+}
+
+- (void)updateStatusMessage {
+    [self.statusButton setTitle:[self statusMessage] forState:UIControlStateDisabled];
+}
+
+- (void)updateBackgroundColor {
+    [self backgroundGradientforHotness: _game.hotness];
 }
 
 - (void)backgroundGradientforHotness:(int)hotness {

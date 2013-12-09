@@ -29,12 +29,6 @@ ClueViewController * clueViewController;
     [super tearDown];
 }
 
-- (void)testChangeStatusShouldChangeCurrentStatus
-{
-    int result = [clueViewController changeStatus];
-    XCTAssertEqual(1, result, @"test test");
-}
-
 - (void) testMergeColors {
     float result = [clueViewController mergeColorValue: 0.0
                                       withNewColor: 1.0

@@ -51,7 +51,7 @@ Location * _firstLocation;
     Location *fourthLocation = [[Location alloc] initWithName: @""
                                                    beaconName: @"Rudolph"
                                                         major: 60647
-                                                        minor: 54414
+                                                        minor: 54514
                                                         clues:@[@""]
                                                          next: fifthLocation];
     

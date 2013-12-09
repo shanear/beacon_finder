@@ -7,11 +7,14 @@
 //
 
 #import "BeaconFinderAppDelegate.h"
+#import "TestFlight.h"
 
 @implementation BeaconFinderAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [TestFlight takeOff:@"67277bae-8f6b-4270-99dd-9d94e72c72ff"];
+
     return YES;
 }
 

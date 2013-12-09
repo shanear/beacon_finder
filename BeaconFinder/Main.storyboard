@@ -43,7 +43,19 @@
                                     <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="You're not close" id="6hc-KW-j7v">
+                                    <navigationItem id="6hc-KW-j7v">
+                                        <nil key="title"/>
+                                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="X32-Xc-d5D">
+                                            <rect key="frame" x="74" y="6" width="172" height="33"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <state key="normal" title="Next Clue">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="onNextClue:" destination="yrb-yY-VcC" eventType="touchUpInside" id="FqB-sg-lpa"/>
+                                            </connections>
+                                        </button>
                                         <barButtonItem key="rightBarButtonItem" style="done" id="SiE-sM-2GG">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="e2h-y2-hB1">
                                                 <rect key="frame" x="258" y="7" width="46" height="30"/>
@@ -90,8 +102,9 @@
                     <connections>
                         <outlet property="beaconsLabel" destination="ElO-4k-XQg" id="neI-05-WYY"/>
                         <outlet property="clueLabel" destination="GRL-VE-3eE" id="iZR-6t-shI"/>
-                        <outlet property="clueStatus" destination="Awh-lZ-uhf" id="tBW-Yu-rkb"/>
                         <outlet property="cluesText" destination="613-tX-gz1" id="fFf-p3-c4a"/>
+                        <outlet property="skipButton" destination="SiE-sM-2GG" id="R7p-7E-x7X"/>
+                        <outlet property="statusButton" destination="X32-Xc-d5D" id="CTr-hG-wer"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="APa-wu-tib" userLabel="First Responder" sceneMemberID="firstResponder"/>
