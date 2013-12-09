@@ -72,6 +72,11 @@ float COLD_BLUE = 0.79;
     self.clueNumber = 1;
 }
 
+-(BOOL) shouldAutorotate
+{
+    return NO;
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

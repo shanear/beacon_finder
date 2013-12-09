@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="SJ1-9V-Fc8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="SJ1-9V-Fc8">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -111,10 +111,10 @@
             </objects>
             <point key="canvasLocation" x="474" y="107"/>
         </scene>
-        <!--View Controller-->
+        <!--Welcome View Controller-->
         <scene sceneID="Z8n-Iv-bkX">
             <objects>
-                <viewController id="SJ1-9V-Fc8" sceneMemberID="viewController">
+                <viewController id="SJ1-9V-Fc8" customClass="WelcomeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FWz-oC-d8q"/>
                         <viewControllerLayoutGuide type="bottom" id="w7o-bp-Dfy"/>
@@ -169,6 +169,7 @@
                             <constraint firstItem="w7o-bp-Dfy" firstAttribute="top" secondItem="GzN-gC-qiT" secondAttribute="bottom" constant="63" id="9cZ-sG-Kgo"/>
                         </constraints>
                     </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="okc-jn-SdK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
