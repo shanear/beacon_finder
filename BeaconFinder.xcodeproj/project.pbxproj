@@ -491,10 +491,8 @@
 				INFOPLIST_FILE = "BeaconFinder/BeaconFinder-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/thoughtworker/Dropbox/Projects/ios/BeaconFinder/EstimoteSDK,
 					"$(SRCROOT)/EstimoteSDK",
-					/Users/thoughtworker/Dropbox/Projects/ios/beacon_finder/TestFlightSDK2.0.2,
-					/Users/thoughtworker/Dropbox/Projects/ios/beacon_finder/BeaconFinder/TestFlightSDK2.0.2,
+					"$(SRCROOT)/TestFlightSDK2.0.2",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -519,10 +517,8 @@
 				INFOPLIST_FILE = "BeaconFinder/BeaconFinder-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/thoughtworker/Dropbox/Projects/ios/BeaconFinder/EstimoteSDK,
 					"$(SRCROOT)/EstimoteSDK",
-					/Users/thoughtworker/Dropbox/Projects/ios/beacon_finder/TestFlightSDK2.0.2,
-					/Users/thoughtworker/Dropbox/Projects/ios/beacon_finder/BeaconFinder/TestFlightSDK2.0.2,
+					"$(SRCROOT)/TestFlightSDK2.0.2",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
