@@ -7,9 +7,11 @@
 //
 
 #import "VictoryViewController.h"
+#import "TimerFormatter.h"
 
 @interface VictoryViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *skipLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 @end
 
 @implementation VictoryViewController
@@ -31,7 +33,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.skipLabel setText: [NSString stringWithFormat:@"Skips: %d", self.skips]];
+    [self.skipLabel setText: [NSString stringWithFormat:@"%d", self.game.skips]];
+    [self.timerLabel setText: [TimerFormatter formatSeconds: self.game.elapsedSeconds]];
 }
 
 - (void)didReceiveMemoryWarning

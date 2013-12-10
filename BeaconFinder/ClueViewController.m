@@ -9,6 +9,7 @@
 #import "ClueViewController.h"
 #import "VictoryViewController.h"
 #import "Game.h"
+#import "TimerFormatter.h"
 #import <ESTBeaconManager.h>
 
 @interface ClueViewController () <ESTBeaconManagerDelegate>
@@ -81,7 +82,7 @@ float COLD_BLUE = 0.79;
 
 -(void) updateTimer: (NSTimer *) timer{
     NSUInteger seconds = [_game elapsedSeconds];
-    [self.timerLabel setText:[NSString stringWithFormat:@"%02u:%02u:%02u", seconds/3600, (seconds/60)%60, seconds%60]];
+    [self.timerLabel setText:[TimerFormatter formatSeconds:seconds]];
 }
 
 -(BOOL) shouldAutorotate
@@ -161,16 +162,16 @@ float COLD_BLUE = 0.79;
 }
 
 - (void)updateLocationUI {
+    if ([_game completed])
+    {
+        [self performSegueWithIdentifier:@"victory" sender:NULL];
+    }
     self.clueNumber += 1;
     [self.clueLabel setText: [NSString stringWithFormat:@"Clue %d", self.clueNumber]];
     [self.statusButton setEnabled:NO];
     [self updateStatusMessage];
     [self updateBackgroundColor];
     [self.skipButton setEnabled:YES];
-    if ([_game completed])
-    {
-        [self performSegueWithIdentifier:@"victory" sender:NULL];
-    }
 }
 
 -(void)changeClueToFunFact {
@@ -223,7 +224,7 @@ float COLD_BLUE = 0.79;
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"victory"]) {
         VictoryViewController *nextvc = (VictoryViewController *)[segue destinationViewController];
-        nextvc.skips = _game.skips;
+        nextvc.game = _game;
     }
 }
 

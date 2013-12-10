@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Game.h"
 
 @interface VictoryViewController : UIViewController
-@property(nonatomic) int skips;
+@property(nonatomic) Game *game;
 @end

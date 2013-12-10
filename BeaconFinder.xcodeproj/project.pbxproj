@@ -34,6 +34,7 @@
 		CC94D66B1852474D00F057ED /* LocationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = CC94D6691852474D00F057ED /* LocationFactory.m */; };
 		CC94D66E1852475800F057ED /* LocationFactoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CC94D66C1852475800F057ED /* LocationFactoryTest.m */; };
 		CC94D66F1852475800F057ED /* LocationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CC94D66D1852475800F057ED /* LocationTest.m */; };
+		CC99CAEB1857A14000CFCD1E /* TimerFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = CC99CAEA1857A14000CFCD1E /* TimerFormatter.m */; };
 		CCE0A4431852968A004F82DD /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE0A4421852968A004F82DD /* Game.m */; };
 		CCE0A4451852A6D0004F82DD /* GameTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE0A4441852A6D0004F82DD /* GameTest.m */; };
 		CCE0A44818568CDC004F82DD /* VictoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE0A44718568CDC004F82DD /* VictoryViewController.m */; };
@@ -94,6 +95,8 @@
 		CC94D6691852474D00F057ED /* LocationFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationFactory.m; sourceTree = "<group>"; };
 		CC94D66C1852475800F057ED /* LocationFactoryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationFactoryTest.m; sourceTree = "<group>"; };
 		CC94D66D1852475800F057ED /* LocationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationTest.m; sourceTree = "<group>"; };
+		CC99CAE91857A14000CFCD1E /* TimerFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerFormatter.h; sourceTree = "<group>"; };
+		CC99CAEA1857A14000CFCD1E /* TimerFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerFormatter.m; sourceTree = "<group>"; };
 		CCE0A4411852968A004F82DD /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		CCE0A4421852968A004F82DD /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		CCE0A4441852A6D0004F82DD /* GameTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameTest.m; sourceTree = "<group>"; };
@@ -186,6 +189,8 @@
 				CC406205185679D5006F4018 /* WelcomeViewController.m */,
 				CCE0A44618568CDC004F82DD /* VictoryViewController.h */,
 				CCE0A44718568CDC004F82DD /* VictoryViewController.m */,
+				CC99CAE91857A14000CFCD1E /* TimerFormatter.h */,
+				CC99CAEA1857A14000CFCD1E /* TimerFormatter.m */,
 			);
 			path = BeaconFinder;
 			sourceTree = "<group>";
@@ -361,6 +366,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC99CAEB1857A14000CFCD1E /* TimerFormatter.m in Sources */,
 				CC0804EC184FE74500A0308E /* ClueViewController.m in Sources */,
 				CCE0A44818568CDC004F82DD /* VictoryViewController.m in Sources */,
 				CC0804CA184FDF2200A0308E /* BeaconFinderAppDelegate.m in Sources */,
