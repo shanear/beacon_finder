@@ -13,6 +13,7 @@
 @interface Game : NSObject 
 @property (nonatomic, readonly) Location *currentLocation;
 @property (nonatomic, readonly) NSInteger hotness;
+@property (nonatomic, readonly) NSInteger skips;
 @property (readonly) BOOL completed;
 @property (readonly) BOOL paused;
 @property (nonatomic, readonly) NSDate *startDate;
@@ -28,6 +29,8 @@ extern const int LOCATION_RSSI_THRESHOLD;
 - (void)resume;
 
 - (NSUInteger)elapsedSeconds;
+
+- (void)skipLocation;
 
 - (void)advanceLocation;
 

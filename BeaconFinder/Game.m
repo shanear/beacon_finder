@@ -27,7 +27,6 @@ NSTimeInterval _storedTime;
         _locationFactory = locationFactory;
         _hotness = 0;
         _locationFound = NO;
-        _storedTime = 0;
         _paused = NO;
     }
     return self;
@@ -37,6 +36,8 @@ NSTimeInterval _storedTime;
 {
     _currentLocation = _locationFactory.getFirst;
     _startDate = [NSDate date];
+    _skips = 0;
+    _storedTime = 0;
 }
 
 - (void)pause {
@@ -92,6 +93,11 @@ NSTimeInterval _storedTime;
         _hotness = [self calculateHotnessFromRssi: rssi];
         [self updateLocationFound];
     }
+}
+
+- (void)skipLocation {
+    _skips++;
+    [self advanceLocation];
 }
 
 - (void)advanceLocation

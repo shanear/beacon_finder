@@ -41,6 +41,10 @@ Game *game;
     XCTAssertNotNil(game.currentLocation);
 }
 
+- (void) testStartSetsSkipsToZero {
+    XCTAssertEqual(0, game.skips);
+}
+
 - (void) testStartDate
 {
     XCTAssertNotNil(game.startDate);
@@ -137,6 +141,12 @@ Game *game;
     XCTAssert(![game completed]);
     [game advanceLocation];
     XCTAssert([game completed]);
+}
+
+- (void)testSkipLocationIncreasesSkips {
+    NSInteger oldSkips = game.skips;
+    [game skipLocation];
+    XCTAssertEqual(oldSkips + 1, game.skips);
 }
 
 @end

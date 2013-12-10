@@ -31,7 +31,6 @@
 
 Game *_game;
 LocationFactory *_locationFactory;
-int _skips;
 NSTimer *timer;
 int timerCount;
 
@@ -70,7 +69,6 @@ float COLD_BLUE = 0.79;
     
     _locationFactory = [[LocationFactory alloc] init];
     _game = [[Game alloc] initWithLocationFactory:_locationFactory];
-    _skips = 0;
     timerCount = 0;
     [_game start];
     timer = [NSTimer scheduledTimerWithTimeInterval:1.0/60.0 target:self selector:@selector(updateTimer:) userInfo:nil repeats: YES];
@@ -152,8 +150,7 @@ float COLD_BLUE = 0.79;
 }
 
 - (IBAction)onSkip:(id)sender {
-    _skips++;
-    [_game advanceLocation];
+    [_game skipLocation];
     [self updateLocationUI];
 }
 
@@ -226,7 +223,7 @@ float COLD_BLUE = 0.79;
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"victory"]) {
         VictoryViewController *nextvc = (VictoryViewController *)[segue destinationViewController];
-        nextvc.skips = _skips;
+        nextvc.skips = _game.skips;
     }
 }
 
