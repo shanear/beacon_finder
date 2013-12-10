@@ -45,7 +45,7 @@
 -(void)testInitSetClues
 {
     Location *location = [[Location alloc] initWithName: @"TW office"
-                                                                       beaconName: @"Gilbert"
+                                             beaconName: @"Gilbert"
                                                   major: 2
                                                   minor: 1
                                                   clues: @[@"Where studios is", @"SF beach"]
@@ -100,6 +100,19 @@
                                                           next: Nil];
     XCTAssertTrue([currentLocation hasMajor:321 minor: 123]);
     XCTAssertFalse([currentLocation hasMajor:123 minor: 456]);
+}
+
+-(void)testFormattedClues {
+    Location *location = [[Location alloc] initWithName: @"loc 2"
+                                            beaconName: @"Gilbert"
+                                                 major: 2
+                                                 minor: 1
+                                                 clues: @[@"Line 1", @"Line 2", @"Line 3"]
+                                               funFact: @"FunFact"
+                                                  next: Nil];
+    
+    NSString *expectedOutput = @"Line 1\n\nLine 2\n\nLine 3";
+    XCTAssert([expectedOutput isEqualToString: [location formattedClues]]);
 }
 
 @end

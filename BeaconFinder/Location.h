@@ -31,4 +31,6 @@
 - (BOOL) hasMajor: (int) major
             minor: (int) minor;
 
+- (NSString *) formattedClues;
+
 @end

@@ -20,9 +20,12 @@
 @property (weak, nonatomic) IBOutlet UIButton *statusButton;
 @property (weak, nonatomic) IBOutlet UITextView *cluesText;
 @property (weak, nonatomic) IBOutlet UILabel *beaconsLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *locationImage;
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 @property int clueNumber;
 @property NSArray *statusMessages;
+@property (weak, nonatomic) IBOutlet UILabel *locationName;
+@property (weak, nonatomic) IBOutlet UITextView *funFactText;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *skipButton;
 @property (nonatomic, strong) ESTBeaconManager* beaconManager;
 @property (nonatomic, strong) ESTBeacon* selectedBeacon;
@@ -73,11 +76,11 @@ float COLD_BLUE = 0.79;
     timerCount = 0;
     [_game start];
     timer = [NSTimer scheduledTimerWithTimeInterval:1.0/60.0 target:self selector:@selector(updateTimer:) userInfo:nil repeats: YES];
-
     
     [self.statusButton setEnabled:NO];
-
-    self.clueNumber = 1;
+    
+    self.clueNumber = 0;
+    [self updateLocationUI];
 }
 
 -(void) updateTimer: (NSTimer *) timer{
@@ -103,7 +106,7 @@ float COLD_BLUE = 0.79;
     if (![_game isLocationFound])
     {
         [self registerBeacons: beacons];
-        [self testOutputForBeacons: beacons];
+        //[self testOutputForBeacons: beacons];
         [self updateStatusMessage];
         [self updateBackgroundColor];
         
@@ -163,27 +166,45 @@ float COLD_BLUE = 0.79;
     }
 }
 
-- (IBAction)onNextClue:(id)sender {
+- (IBAction)onNextClue:(id)sender
+{
     [_game resume];
     [_game advanceLocation];
     [self updateLocationUI];
 }
 
-- (void)updateLocationUI {
+- (void)updateLocationUI
+{
     if ([_game completed])
     {
         [self performSegueWithIdentifier:@"victory" sender:NULL];
     }
     self.clueNumber += 1;
     [self.clueLabel setText: [NSString stringWithFormat:@"Clue %d", self.clueNumber]];
+    [self.cluesText setText:[_game.currentLocation formattedClues]];
+    
+    NSString *imageName = [NSString stringWithFormat:@"%@Clue", _game.currentLocation.beaconName];
+    [self.locationImage setImage:[UIImage imageNamed:imageName]];
+    
     [self.statusButton setEnabled:NO];
     [self updateStatusMessage];
     [self updateBackgroundColor];
     [self.skipButton setEnabled:YES];
+    [self.locationName setHidden:YES];
+    [self.funFactText setHidden:YES];
+    [self.cluesText setHidden:NO];
+
 }
 
--(void)changeClueToFunFact {
+-(void)changeClueToFunFact
+{
     [self.clueLabel setText:@"Nice job!"];
+    [self.cluesText setHidden:YES];
+    [self.locationName setText:_game.currentLocation.name];
+    [self.locationName setHidden:NO];
+    [self.funFactText setText:_game.currentLocation.funFact];
+    [self.funFactText setHidden:NO];
+    [self.locationImage setImage:[UIImage imageNamed:_game.currentLocation.beaconName]];
     [self.statusButton setEnabled:YES];
     [self.skipButton setEnabled:NO];
     self.view.backgroundColor = [UIColor colorWithRed:0.60 green: 0.93 blue: 0.60 alpha:1];
