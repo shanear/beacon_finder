@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="SJ1-9V-Fc8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="SJ1-9V-Fc8">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -105,11 +105,77 @@
                         <outlet property="cluesText" destination="613-tX-gz1" id="fFf-p3-c4a"/>
                         <outlet property="skipButton" destination="SiE-sM-2GG" id="R7p-7E-x7X"/>
                         <outlet property="statusButton" destination="X32-Xc-d5D" id="CTr-hG-wer"/>
+                        <segue destination="HAq-hZ-7xj" kind="modal" identifier="victory" id="Osr-Pv-JgG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="APa-wu-tib" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="474" y="107"/>
+        </scene>
+        <!--Victory View Controller-->
+        <scene sceneID="6i1-H8-6OK">
+            <objects>
+                <viewController id="HAq-hZ-7xj" customClass="VictoryViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gqh-oS-0GQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="HXg-m9-2WZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gEd-NX-VOw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="victory1" translatesAutoresizingMaskIntoConstraints="NO" id="UN3-xS-f8R">
+                                <rect key="frame" x="0.0" y="61" width="320" height="232"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="24S-Al-BuY"/>
+                                    <constraint firstAttribute="height" constant="232" id="KAS-Tk-dJz"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="You've done it!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Jh-1m-hoy">
+                                <rect key="frame" x="20" y="20" width="280" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.92941182850000004" green="0.92941182850000004" blue="0.92941182850000004" alpha="0.0" colorSpace="deviceRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F5n-nB-FYO">
+                                <rect key="frame" x="52" y="443" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Skips" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6iQ-if-xMI">
+                                <rect key="frame" x="192" y="443" width="48" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HOv-vs-UYW">
+                                <rect key="frame" x="20" y="307" width="280" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <string key="text">Great job! Enjoy the party. To be entered in the final contest, bring this to Shane and Alexandra and we will record your final score. Good luck!</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.61176470588235299" green="0.93333333333333335" blue="0.61176470588235299" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="HOv-vs-UYW" firstAttribute="top" secondItem="UN3-xS-f8R" secondAttribute="bottom" constant="8" id="6sf-GY-yKm"/>
+                            <constraint firstItem="HXg-m9-2WZ" firstAttribute="top" secondItem="F5n-nB-FYO" secondAttribute="bottom" constant="16" id="Vt8-wf-lHq"/>
+                            <constraint firstItem="UN3-xS-f8R" firstAttribute="top" secondItem="1Jh-1m-hoy" secondAttribute="bottom" constant="8" id="Yb6-Su-4Fa"/>
+                            <constraint firstItem="HXg-m9-2WZ" firstAttribute="top" secondItem="6iQ-if-xMI" secondAttribute="bottom" constant="16" id="v06-Eo-grD"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="skipLabel" destination="6iQ-if-xMI" id="nA9-G4-YgN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gEq-Rv-jhw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="886" y="155"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="Z8n-Iv-bkX">
@@ -179,6 +245,7 @@
     <resources>
         <image name="Backdrop" width="640" height="427"/>
         <image name="twSFlogo" width="650" height="385"/>
+        <image name="victory1" width="500" height="385"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

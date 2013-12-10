@@ -7,6 +7,7 @@
 //
 
 #import "ClueViewController.h"
+#import "VictoryViewController.h"
 #import "Game.h"
 #import <ESTBeaconManager.h>
 
@@ -29,6 +30,7 @@
 
 Game *_game;
 LocationFactory *_locationFactory;
+int _skips;
 
 float HOT_RED = 0.9;
 float HOT_GREEN = 0.32;
@@ -65,6 +67,7 @@ float COLD_BLUE = 0.79;
     
     _locationFactory = [[LocationFactory alloc] init];
     _game = [[Game alloc] initWithLocationFactory:_locationFactory];
+    _skips = 0;
     [_game start];
     
     [self.statusButton setEnabled:NO];
@@ -91,16 +94,14 @@ float COLD_BLUE = 0.79;
     {
         [self registerBeacons: beacons];
         [self testOutputForBeacons: beacons];
+        [self updateStatusMessage];
+        [self updateBackgroundColor];
         
         if([_game isLocationFound])
         {
             [self changeClueToFunFact];
         }
-        
-        [self updateStatusMessage];
     }
-    
-    [self updateBackgroundColor];
 }
 
 -(void)registerBeacons: (NSArray *) beacons
@@ -139,6 +140,7 @@ float COLD_BLUE = 0.79;
 }
 
 - (IBAction)onSkip:(id)sender {
+    _skips++;
     [_game advanceLocation];
     [self updateLocationUI];
 }
@@ -153,13 +155,19 @@ float COLD_BLUE = 0.79;
     [self.clueLabel setText: [NSString stringWithFormat:@"Clue %d", self.clueNumber]];
     [self.statusButton setEnabled:NO];
     [self updateStatusMessage];
+    [self updateBackgroundColor];
     [self.skipButton setEnabled:YES];
+    if ([_game completed])
+    {
+        [self performSegueWithIdentifier:@"victory" sender:NULL];
+    }
 }
 
 -(void)changeClueToFunFact {
     [self.clueLabel setText:@"Nice job!"];
     [self.statusButton setEnabled:YES];
     [self.skipButton setEnabled:NO];
+    self.view.backgroundColor = [UIColor colorWithRed:0.60 green: 0.93 blue: 0.60 alpha:1];
 }
 
 - (NSString *)statusMessage {
@@ -200,6 +208,13 @@ float COLD_BLUE = 0.79;
             byPercentage: (int) percentage {
     float stepAmount = (newColor - oldColor) / 100.0;
     return oldColor + (stepAmount * percentage);
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"victory"]) {
+        VictoryViewController *nextvc = (VictoryViewController *)[segue destinationViewController];
+        nextvc.skips = _skips;
+    }
 }
 
 @end
