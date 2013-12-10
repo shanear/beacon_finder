@@ -82,9 +82,7 @@ float COLD_BLUE = 0.79;
 }
 
 -(void) updateTimer: (NSTimer *) timer{
-    NSDate *currentTime = [NSDate date];
-    NSTimeInterval elapsedTime = [currentTime timeIntervalSinceDate:_game.startDate];
-    NSUInteger seconds = (NSUInteger)round(elapsedTime);
+    NSUInteger seconds = [_game elapsedSeconds];
     [self.timerLabel setText:[NSString stringWithFormat:@"%02u:%02u:%02u", seconds/3600, (seconds/60)%60, seconds%60]];
 }
 
@@ -113,6 +111,7 @@ float COLD_BLUE = 0.79;
         if([_game isLocationFound])
         {
             [self changeClueToFunFact];
+            [_game pause];
         }
     }
 }
@@ -159,6 +158,7 @@ float COLD_BLUE = 0.79;
 }
 
 - (IBAction)onNextClue:(id)sender {
+    [_game resume];
     [_game advanceLocation];
     [self updateLocationUI];
 }

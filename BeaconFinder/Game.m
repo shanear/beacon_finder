@@ -17,6 +17,7 @@
 LocationFactory *_locationFactory;
 BOOL _locationFound;
 int const LOCATION_RSSI_THRESHOLD = -75;
+NSTimeInterval _storedTime;
 
 - (id)initWithLocationFactory:(LocationFactory *)locationFactory
 {
@@ -26,6 +27,8 @@ int const LOCATION_RSSI_THRESHOLD = -75;
         _locationFactory = locationFactory;
         _hotness = 0;
         _locationFound = NO;
+        _storedTime = 0;
+        _paused = NO;
     }
     return self;
 }
@@ -34,6 +37,31 @@ int const LOCATION_RSSI_THRESHOLD = -75;
 {
     _currentLocation = _locationFactory.getFirst;
     _startDate = [NSDate date];
+}
+
+- (void)pause {
+    NSDate *currentTime = [NSDate date];
+    NSTimeInterval elapsedTime = [currentTime timeIntervalSinceDate:_startDate];
+    _storedTime += elapsedTime;
+    _paused = YES;
+}
+
+- (void)resume {
+    _startDate = [NSDate date];
+    _paused = NO;
+}
+
+- (NSUInteger)elapsedSeconds {
+    NSTimeInterval elapsedTime = 0.0;
+    
+    if(!self.paused) {
+        NSDate *currentTime = [NSDate date];
+        elapsedTime += [currentTime timeIntervalSinceDate:_startDate];
+    }
+    
+    elapsedTime += _storedTime;
+    
+    return (NSUInteger)round(elapsedTime);
 }
 
 - (BOOL) isLocationFound

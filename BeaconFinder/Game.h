@@ -14,6 +14,7 @@
 @property (nonatomic, readonly) Location *currentLocation;
 @property (nonatomic, readonly) NSInteger hotness;
 @property (readonly) BOOL completed;
+@property (readonly) BOOL paused;
 @property (nonatomic, readonly) NSDate *startDate;
 
 extern const int LOCATION_RSSI_THRESHOLD;
@@ -21,6 +22,12 @@ extern const int LOCATION_RSSI_THRESHOLD;
 - (id)initWithLocationFactory:(LocationFactory *) locationFactory;
 
 - (void)start;
+
+- (void)pause;
+
+- (void)resume;
+
+- (NSUInteger)elapsedSeconds;
 
 - (void)advanceLocation;
 
