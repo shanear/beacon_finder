@@ -35,6 +35,7 @@
                                                   major: 3
                                                   minor: 1
                                                   clues: @[@"Clue 1"]
+                                                funFact: @"FunFact"
                                                    next: Nil];
     XCTAssertEqualObjects(location.name, @"Test");
     XCTAssertEqual(location.major, 3);
@@ -48,12 +49,26 @@
                                                   major: 2
                                                   minor: 1
                                                   clues: @[@"Where studios is", @"SF beach"]
+                                                funFact: @"FunFact"
                                                    next: Nil];
     
     NSString *firstClue = [location.clues objectAtIndex:0];
     NSString *secondClue = [location.clues objectAtIndex:1];
     XCTAssertEqualObjects(firstClue, @"Where studios is");
     XCTAssertEqualObjects(secondClue, @"SF beach");
+}
+
+-(void)testInitSetFunFact
+{
+    Location *location = [[Location alloc] initWithName: @"TW office"
+                                             beaconName: @"Gilbert"
+                                                  major: 2
+                                                  minor: 1
+                                                  clues: @[@"Where studios is", @"SF beach"]
+                                                funFact: @"FunFact Yay!"
+                                                   next: Nil];
+    
+    XCTAssertEqualObjects(location.funFact, @"FunFact Yay!");
 }
 
 -(void)testLocationShouldKnowAboutNext
@@ -63,11 +78,13 @@
                                                       major: 2
                                                       minor: 1
                                                       clues: @[@"clue 2"]
+                                                    funFact: @"FunFact"
                                                        next: Nil];\
     Location *currentLocation = [[Location alloc] initWithName: @"loc 1"                                                                                                     beaconName: @"Rudolph"
                                                          major: 3
                                                          minor: 1
                                                          clues: @[@"clue 1"]
+                                                       funFact: @"FunFact"
                                                           next: nextLocation];
     XCTAssertEqualObjects(currentLocation.next, nextLocation);
 }
@@ -79,6 +96,7 @@
                                                          major: 321
                                                          minor: 123
                                                          clues: @[@"clue 1"]
+                                                       funFact: @"FunFact"
                                                           next: Nil];
     XCTAssertTrue([currentLocation hasMajor:321 minor: 123]);
     XCTAssertFalse([currentLocation hasMajor:123 minor: 456]);

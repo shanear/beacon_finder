@@ -15,6 +15,7 @@
               major: (int) major
               minor: (int) minor
               clues: (NSArray *) clues
+            funFact:(NSString *)funFact
                next: (Location *) next
 {
     
@@ -25,6 +26,7 @@
         _major = major;
         _minor = minor;
         _clues = [clues copy];
+        _funFact = [funFact copy];
         _next = next;
     }
     return self;

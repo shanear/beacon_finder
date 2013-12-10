@@ -16,6 +16,8 @@
 @property int major;
 @property int minor;
 @property NSArray *clues;
+@property NSString *funFact;
+
 @property Location *next;
 
 - (id) initWithName: (NSString *) name
@@ -23,6 +25,7 @@
               major: (int) major
               minor: (int) minor
               clues: (NSArray *) clues
+            funFact: (NSString *) funFact
                next: (Location *) next;
 
 - (BOOL) hasMajor: (int) major

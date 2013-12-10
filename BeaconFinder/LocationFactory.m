@@ -39,6 +39,7 @@ Location * _firstLocation;
                                                        major: 57068
                                                        minor: 56361
                                                        clues:@[@""]
+                                                     funFact: @""
                                                         next: Nil];
     
     Location *fifthLocation = [[Location alloc] initWithName: @""
@@ -46,6 +47,7 @@ Location * _firstLocation;
                                                        major: 16768
                                                        minor: 53642
                                                        clues:@[@""]
+                                                     funFact: @""
                                                         next: sixthLocation];
     
     Location *fourthLocation = [[Location alloc] initWithName: @""
@@ -53,6 +55,7 @@ Location * _firstLocation;
                                                         major: 60647
                                                         minor: 54514
                                                         clues:@[@""]
+                                                      funFact: @""
                                                          next: fifthLocation];
     
     Location *thirdLocation = [[Location alloc] initWithName: @""
@@ -60,6 +63,7 @@ Location * _firstLocation;
                                                        major: 65415
                                                        minor: 17595
                                                        clues:@[@""]
+                                                     funFact: @""
                                                         next: fourthLocation];
     
     Location *secondLocation = [[Location alloc] initWithName: @""
@@ -67,6 +71,7 @@ Location * _firstLocation;
                                                         major: 44495
                                                         minor: 19404
                                                         clues:@[@""]
+                                                      funFact: @""
                                                          next: thirdLocation];
 
     _firstLocation = [[Location alloc] initWithName: @""
@@ -74,6 +79,7 @@ Location * _firstLocation;
                                               major: 37678
                                               minor: 62097
                                               clues:@[@""]
+                                            funFact: @""
                                                next: secondLocation];
     return self;
 }
