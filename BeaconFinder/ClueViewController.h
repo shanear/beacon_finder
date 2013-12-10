@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ClueViewController : UIViewController
+@interface ClueViewController : UIViewController <UIAlertViewDelegate>
 - (int)changeStatus;
 - (float)mergeColorValue:(float) oldColor
             withNewColor: (float) newColor

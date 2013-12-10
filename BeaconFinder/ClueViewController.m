@@ -151,8 +151,16 @@ float COLD_BLUE = 0.79;
 }
 
 - (IBAction)onSkip:(id)sender {
-    [_game skipLocation];
-    [self updateLocationUI];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Are you sure?" message:@"If you skip, you will never be able to return to this clue." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Skip", nil];
+    
+    [alertView show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if(buttonIndex != [alertView cancelButtonIndex]) {
+        [_game skipLocation];
+        [self updateLocationUI];
+    }
 }
 
 - (IBAction)onNextClue:(id)sender {
