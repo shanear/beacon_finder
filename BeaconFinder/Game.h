@@ -14,6 +14,7 @@
 @property (nonatomic, readonly) Location *currentLocation;
 @property (nonatomic, readonly) NSInteger hotness;
 @property (readonly) BOOL completed;
+@property (nonatomic, readonly) NSDate *startDate;
 
 extern const int LOCATION_RSSI_THRESHOLD;
 

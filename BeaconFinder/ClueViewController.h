@@ -13,4 +13,5 @@
 - (float)mergeColorValue:(float) oldColor
             withNewColor: (float) newColor
             byPercentage: (int) percentage;
+-(void) updateTimer: (NSTimer *) timer;
 @end

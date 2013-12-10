@@ -33,6 +33,7 @@ int const LOCATION_RSSI_THRESHOLD = -75;
 - (void)start
 {
     _currentLocation = _locationFactory.getFirst;
+    _startDate = [NSDate date];
 }
 
 - (BOOL) isLocationFound

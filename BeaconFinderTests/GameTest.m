@@ -41,6 +41,11 @@ Game *game;
     XCTAssertNotNil(game.currentLocation);
 }
 
+- (void) testStartDate
+{
+    XCTAssertNotNil(game.startDate);
+}
+
 - (void) testHotnessCalculation
 {
     XCTAssertEqual(100, [game calculateHotnessFromRssi:-75]);

@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *statusButton;
 @property (weak, nonatomic) IBOutlet UITextView *cluesText;
 @property (weak, nonatomic) IBOutlet UILabel *beaconsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 @property int clueNumber;
 @property NSArray *statusMessages;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *skipButton;
@@ -31,6 +32,8 @@
 Game *_game;
 LocationFactory *_locationFactory;
 int _skips;
+NSTimer *timer;
+int timerCount;
 
 float HOT_RED = 0.9;
 float HOT_GREEN = 0.32;
@@ -68,11 +71,21 @@ float COLD_BLUE = 0.79;
     _locationFactory = [[LocationFactory alloc] init];
     _game = [[Game alloc] initWithLocationFactory:_locationFactory];
     _skips = 0;
+    timerCount = 0;
     [_game start];
+    timer = [NSTimer scheduledTimerWithTimeInterval:1.0/60.0 target:self selector:@selector(updateTimer:) userInfo:nil repeats: YES];
+
     
     [self.statusButton setEnabled:NO];
 
     self.clueNumber = 1;
+}
+
+-(void) updateTimer: (NSTimer *) timer{
+    NSDate *currentTime = [NSDate date];
+    NSTimeInterval elapsedTime = [currentTime timeIntervalSinceDate:_game.startDate];
+    NSUInteger seconds = (NSUInteger)round(elapsedTime);
+    [self.timerLabel setText:[NSString stringWithFormat:@"%02u:%02u:%02u", seconds/3600, (seconds/60)%60, seconds%60]];
 }
 
 -(BOOL) shouldAutorotate
