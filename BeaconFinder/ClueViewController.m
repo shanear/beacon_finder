@@ -179,21 +179,22 @@ float COLD_BLUE = 0.79;
     {
         [self performSegueWithIdentifier:@"victory" sender:NULL];
     }
-    self.clueNumber += 1;
-    [self.clueLabel setText: [NSString stringWithFormat:@"Clue %d", self.clueNumber]];
-    [self.cluesText setText:[_game.currentLocation formattedClues]];
-    
-    NSString *imageName = [NSString stringWithFormat:@"%@Clue", _game.currentLocation.beaconName];
-    [self.locationImage setImage:[UIImage imageNamed:imageName]];
-    
-    [self.statusButton setEnabled:NO];
-    [self updateStatusMessage];
-    [self updateBackgroundColor];
-    [self.skipButton setEnabled:YES];
-    [self.locationName setHidden:YES];
-    [self.funFactText setHidden:YES];
-    [self.cluesText setHidden:NO];
-
+    else {
+        self.clueNumber += 1;
+        [self.clueLabel setText: [NSString stringWithFormat:@"Clue %d", self.clueNumber]];
+        [self.cluesText setText:[_game.currentLocation formattedClues]];
+        
+        NSString *imageName = [NSString stringWithFormat:@"%@Clue", _game.currentLocation.beaconName];
+        [self.locationImage setImage:[UIImage imageNamed:imageName]];
+        
+        [self.statusButton setEnabled:NO];
+        [self updateStatusMessage];
+        [self updateBackgroundColor];
+        [self.skipButton setEnabled:YES];
+        [self.locationName setHidden:YES];
+        [self.funFactText setHidden:YES];
+        [self.cluesText setHidden:NO];
+    }
 }
 
 -(void)changeClueToFunFact
@@ -208,6 +209,10 @@ float COLD_BLUE = 0.79;
     [self.statusButton setEnabled:YES];
     [self.skipButton setEnabled:NO];
     self.view.backgroundColor = [UIColor colorWithRed:0.60 green: 0.93 blue: 0.60 alpha:1];
+    
+    if(_game.currentLocation.next == NULL) {
+        [self.statusButton setTitle:@"Finish!" forState:UIControlStateNormal];
+    }
 }
 
 - (NSString *)statusMessage {

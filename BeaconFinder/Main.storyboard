@@ -204,9 +204,10 @@ Main source of TWer energy blah blah blah</string>
                                 <rect key="frame" x="20" y="301" width="280" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
-                                <string key="text">Great job! Enjoy the party. To be entered in the final contest, bring this to Shane and Alexandra and we will record your final score. Good luck!</string>
+                                <string key="text">Great job! Head on over to the party @ Southside Spirit House (575 Howard St, San Francisco) and show this screen to Alexandra or Shane and we'll let you know where you stand.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" address="YES"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.61176470588235299" green="0.93333333333333335" blue="0.61176470588235299" alpha="1" colorSpace="calibratedRGB"/>

@@ -38,24 +38,24 @@ Location * _firstLocation;
                                                   beaconName: @"Gilbert"
                                                        major: 57068
                                                        minor: 56361
-                                                       clues:@[@"Mikey's Favorite museum", @"Sucks that it's closed", @"Who needs NY?"]
-                                                     funFact: @"Even though the main branch is closed, you can still check out SFMOMA exhibitions and events around the Bay Area!"
+                                                       clues:@[@"Mikey's Favorite museum", @"Who needs NY?", @"Sucks that it's closed, but there's a cool fountain area across the street", @"Purple and yellow"]
+                                                     funFact: @"Even though the main branch is closed, you can still check out SFMOMA exhibitions and events around the Bay Area like the Matisse exhibit at the Legion of Honor."
                                                         next: Nil];
     
     Location *fifthLocation = [[Location alloc] initWithName: @""
                                                   beaconName: @"KevinBeacon"
                                                        major: 16768
                                                        minor: 53642
-                                                       clues:@[@"One of Shane and Alexandra's favorite POPOS", @"It's a freaking Statue", @"Water"]
-                                                     funFact: @""
+                                                       clues:@[@"One of Shane and Alexandra's favorite POPOS", @"On Mission, not in the Mission", @"Colorful people tower", @"The ugliest head"]
+                                                     funFact: @"POPOS are Privately Owned, Publicly Open spaces full of art and greenery. They're great places to eat lunch in the fresh air."
                                                         next: sixthLocation];
     
     Location *fourthLocation = [[Location alloc] initWithName: @"House of Shields"
                                                    beaconName: @"Rudolph"
                                                         major: 60647
                                                         minor: 54514
-                                                        clues:@[@"One of Badri's favorite bars", @"Over a century old", @"Defensive"]
-                                                      funFact: @"There are no clocks or TVs on the premise."
+                                                        clues:@[@"One of Badri's favorite bars", @"Over a century old", @"No clocks, no TVs"]
+                                                      funFact: @"\"They are not terribly pretentious and actually have a good beer selection as well\"\n\n-Badri"
                                                          next: fifthLocation];
     
     Location *thirdLocation = [[Location alloc] initWithName: @"Hops & Hominy"
@@ -63,7 +63,7 @@ Location * _firstLocation;
                                                        major: 65415
                                                        minor: 17595
                                                        clues:@[@"One of Dean's favorite watering holes", @"Snack on some grits alongside your homebrew"]
-                                                     funFact: @"So the timer is paused.\n\nTake a minute and go ask the bartender for a Dean Machine, named after the Dean Machine himself."
+                                                     funFact: @"So the timer is paused...\n\nTake a minute and go ask the bartender for a Dean Machine, named after the Dean Bosche, the Dean Machine himself."
                                                         next: fourthLocation];
     
     Location *secondLocation = [[Location alloc] initWithName: @"Z&Y"
@@ -71,7 +71,7 @@ Location * _firstLocation;
                                                         major: 44495
                                                         minor: 19404
                                                         clues:@[@"The Studios team loves to get lunch here", @"Late in the alphabet", @"HELLA SPICY!"]
-                                                      funFact: @"President Obama stopped by in 2012!"
+                                                      funFact: @"President Obama stopped by here for some hella spicy Chinese Food in 2012.\n\n\" Anything you see with \"flaming chili oil\" on the menu is amazing.\"\n\n-Ethan Teng from the Mingle Team"
                                                          next: thirdLocation];
 
     _firstLocation = [[Location alloc] initWithName: @"Office Coffee Machine"
@@ -79,7 +79,7 @@ Location * _firstLocation;
                                               major: 37678
                                               minor: 62097
                                               clues:@[@"Let's start on the 16th",@"Lungo Forte", @"Main source of TWer energy"]
-                                            funFact: @"Nice. You figured out your first clue! They get harder from here on out. We’re using estimote beacons to notify your iDevice when you approach the clue location--the Estimotes were kindly provided by Dean Bosche."
+                                            funFact: @"Nice. You figured out your first clue! They get harder from here on out. We’re using cutting edge Estimote beacons to notify your iDevice when you approach the clue location-- Thanks Dean!"
                                                next: secondLocation];
     return self;
 }
