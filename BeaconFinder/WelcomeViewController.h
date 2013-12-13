@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface WelcomeViewController : UIViewController
-
+- (void) startSegue;
 @end

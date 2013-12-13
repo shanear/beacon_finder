@@ -37,6 +37,7 @@
     return (major == _major && minor == _minor);
 }
 
+
 - (NSString *) formattedClues {
     return [_clues componentsJoinedByString:@"\n\n"];
 }

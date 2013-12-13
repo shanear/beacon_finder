@@ -33,7 +33,7 @@ Game *game;
 {
     LocationFactory* locationFactory = [[LocationFactory alloc] init];
     game = [[Game alloc] initWithLocationFactory:locationFactory];
-    [game start];
+    [game start: NULL target: NULL];
 }
 
 - (void) testStart

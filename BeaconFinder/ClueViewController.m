@@ -33,8 +33,6 @@
 
 @implementation ClueViewController
 
-Game *_game;
-LocationFactory *_locationFactory;
 NSTimer *timer;
 int timerCount;
 
@@ -71,10 +69,7 @@ float COLD_BLUE = 0.79;
     // when beacon ranged beaconManager:didRangeBeacons:inRegion: invoked
     [self.beaconManager startRangingBeaconsInRegion:region];
     
-    _locationFactory = [[LocationFactory alloc] init];
-    _game = [[Game alloc] initWithLocationFactory:_locationFactory];
     timerCount = 0;
-    [_game start];
     timer = [NSTimer scheduledTimerWithTimeInterval:1.0/60.0 target:self selector:@selector(updateTimer:) userInfo:nil repeats: YES];
     
     [self.statusButton setEnabled:NO];

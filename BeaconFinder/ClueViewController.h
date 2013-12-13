@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Game.h"
 
 @interface ClueViewController : UIViewController <UIAlertViewDelegate>
+@property (nonatomic) Game *game;
 - (int)changeStatus;
 - (float)mergeColorValue:(float) oldColor
             withNewColor: (float) newColor

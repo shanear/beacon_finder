@@ -79,16 +79,13 @@
 
 Main source of TWer energy blah blah blah</string>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="260" ambiguous="YES" misplaced="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j8Y-0W-AND">
                                 <rect key="frame" x="20" y="275" width="280" height="153"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
-                                <string key="text">Let's start on the 16th  Lungo Forte
-
-Main source of TWer energy blah blah blah</string>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -252,24 +249,24 @@ Main source of TWer energy blah blah blah</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GzN-gC-qiT">
-                                <rect key="frame" x="20" y="387" width="280" height="30"/>
+                                <rect key="frame" x="20" y="407" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Let's Get Started!">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="yrb-yY-VcC" kind="modal" id="yaj-cd-9De"/>
+                                    <action selector="startButtonClicked:" destination="SJ1-9V-Fc8" eventType="touchUpInside" id="pzZ-sr-7aF"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Get to know your neighborhood and coworkers, plus win prizes or a donation to a charity of your choice!" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Fw1-FC-1Te">
-                                <rect key="frame" x="20" y="271" width="280" height="91"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" text="Get to know your neighborhood and coworkers, plus win prizes or a donation to a charity of your choice!" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Fw1-FC-1Te">
+                                <rect key="frame" x="20" y="240" width="280" height="91"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Holiday Scavenger Hunt" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfi-24-Dka">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Holiday Scavenger Hunt" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfi-24-Dka">
                                 <rect key="frame" x="58" y="206" width="204" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -284,13 +281,31 @@ Main source of TWer energy blah blah blah</string>
                                     <constraint firstAttribute="height" constant="150" id="pGn-wS-ogJ"/>
                                 </constraints>
                             </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Team Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Cj-Pw-IEp">
+                                <rect key="frame" x="58" y="357" width="204" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="TiI-KB-ntR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="teamNameEntered:" destination="SJ1-9V-Fc8" eventType="editingDidEndOnExit" id="pNj-in-8v9"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.97658991203212331" blue="0.79991053599965745" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="Fw1-FC-1Te" firstAttribute="top" secondItem="dfi-24-Dka" secondAttribute="bottom" constant="20" id="4Ja-Aw-ehb"/>
                             <constraint firstItem="w7o-bp-Dfy" firstAttribute="top" secondItem="GzN-gC-qiT" secondAttribute="bottom" constant="63" id="9cZ-sG-Kgo"/>
+                            <constraint firstItem="GzN-gC-qiT" firstAttribute="top" secondItem="7Cj-Pw-IEp" secondAttribute="bottom" constant="8" id="ZmA-NS-b5p"/>
                         </constraints>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <connections>
+                        <outlet property="startButton" destination="GzN-gC-qiT" id="bfi-wY-WES"/>
+                        <segue destination="yrb-yY-VcC" kind="modal" identifier="start" id="wms-9p-hwg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="okc-jn-SdK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

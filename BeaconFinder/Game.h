@@ -16,13 +16,14 @@
 @property (nonatomic, readonly) NSInteger skips;
 @property (readonly) BOOL completed;
 @property (readonly) BOOL paused;
+@property (nonatomic) NSString *teamName;
 @property (nonatomic, readonly) NSDate *startDate;
 
 extern const int LOCATION_RSSI_THRESHOLD;
 
 - (id)initWithLocationFactory:(LocationFactory *) locationFactory;
 
-- (void)start;
+- (void)start:(SEL)successHandler target:(id)target;
 
 - (void)pause;
 
